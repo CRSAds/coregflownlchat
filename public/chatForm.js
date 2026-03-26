@@ -178,12 +178,12 @@ input[type="text"], input[type="tel"], input[type="email"], select {
   }
 
   // =============================================================
-  // 3. FLOW CONFIGURATIES
+  // 3. FLOW CONFIGURATIES (Aangepast: Gender Fix + IVR na Coreg)
   // =============================================================
   const chatFlow = [
     {
       id: "gender", botTexts: ["Hoi! Leuk dat je er bent 👋", "Laten we kijken of je in aanmerking komt. Ben je een man of een vrouw?"],
-      inputType: "buttons", options: [{ label: "Man 🙋‍♂️", value: "De heer" }, { label: "Vrouw 🙋‍♀️", value: "mevrouw" }]
+      inputType: "buttons", options: [{ label: "Man 🙋‍♂️", value: "De Heer" }, { label: "Vrouw 🙋‍♀️", value: "Mevrouw" }]
     },
     {
       id: "name", botTexts: ["Duidelijk.", "Hoe heet je?"],
@@ -205,7 +205,10 @@ input[type="text"], input[type="tel"], input[type="email"], select {
     {
       id: "partners", botTexts: ["Nog één dingetje...", "Om deze actie mogelijk te maken, werken we samen met partners.", "Vind je het goed dat onze <button class='open-sponsor-popup' style='background:none; border:none; padding:0; color:#14B670; text-decoration:underline; cursor:pointer; font-size:inherit; font-weight:700; font-family:inherit;'>partners</button> je benaderen met aanbiedingen?"],
       inputType: "partners_choice", btnAccept: "Ja, prima", btnDecline: "Nee, liever niet"
-    },
+    }
+  ];
+
+  const longChatFlow = [
     {
       id: "ivr", condition: () => isLive, 
       botTexts: [
@@ -213,10 +216,7 @@ input[type="text"], input[type="tel"], input[type="email"], select {
         "Wil je niet wachten? Bel ons speciale winlijn-nummer en hoor direct of je vandaag een van onze extra prijzen wint! ⚡"
       ],
       inputType: "ivr_verify"
-    }
-  ];
-
-  const longChatFlow = [
+    },
     {
       id: "address_zip", botTexts: ["Zo, de aanbiedingen zijn afgerond! 🎉", "Om je prijs eventueel op te sturen, hebben we je adres nodig.", "Wat is je postcode en huisnummer?"],
       inputType: "address_zip_lookup", fields: [{ id: "zipcode", placeholder: "1234AB" }, { id: "housenumber", placeholder: "Nr" }]
@@ -235,8 +235,8 @@ input[type="text"], input[type="tel"], input[type="email"], select {
     }
   ];
 
-  let currentFlow = chatFlow; 
-
+  let currentFlow = chatFlow;
+  
   // =============================================================
   // 4. INIT
   // =============================================================
