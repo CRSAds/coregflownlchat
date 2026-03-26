@@ -183,7 +183,7 @@ input[type="text"], input[type="tel"], input[type="email"], select {
   const chatFlow = [
     {
       id: "gender", botTexts: ["Hoi! Leuk dat je er bent 👋", "Laten we kijken of je in aanmerking komt. Ben je een man of een vrouw?"],
-      inputType: "buttons", options: [{ label: "Man 🙋‍♂️", value: "Man" }, { label: "Vrouw 🙋‍♀️", value: "Vrouw" }]
+      inputType: "buttons", options: [{ label: "Man 🙋‍♂️", value: "De heer" }, { label: "Vrouw 🙋‍♀️", value: "mevrouw" }]
     },
     {
       id: "name", botTexts: ["Duidelijk.", "Hoe heet je?"],
